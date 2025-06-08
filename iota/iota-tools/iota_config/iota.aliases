@@ -1,0 +1,10 @@
+[
+  {
+    "alias": "test-1-wallet-1",
+    "public_key_base64": "AHX3JpBjG9CDbdaZpqfDzU7GhpSA6Bl4gubNMXxW6vrM"
+  },
+  {
+    "alias": "test-2-wallet-1",
+    "public_key_base64": "ALsZr3E0h1MnfjWXAWyC4/EPUDyVlCoKgA32vvYkhXIx"
+  }
+]

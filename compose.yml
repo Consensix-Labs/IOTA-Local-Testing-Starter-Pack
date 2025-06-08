@@ -1,0 +1,75 @@
+services:
+  iota-tools:
+    image: iotaledger/iota-tools:v1.1.0
+    container_name: iota-tools
+    profiles:
+      - genesis
+    command: >
+      sh -c '
+        bash /opt/iota/iota-tools/genesis.sh &&
+          cp /tmp/iota/genesis.blob /opt/iota/common/genesis.blob
+      '
+    networks:
+      - iota-net
+    volumes:
+      - ./iota:/opt/iota
+      - ./iota/iota-tools/iota_config:/root/.iota/iota_config
+
+  # Validator node 1
+  iota-validator-node-1: &iota-node
+    image: iotaledger/iota-node:v1.1.0
+    container_name: iota-validator-node-1
+    ports:
+      - "41900:9000"
+      - "41084:8084/udp"
+    command: >
+      sh -c '
+        [ -f /opt/iota/common/genesis.blob ] &&
+          iota-node --config-path /opt/iota/config/*-node.yaml
+      '
+    networks:
+      - iota-net
+    volumes:
+      - ./iota/iota-validator-node-1/config:/opt/iota/config
+      - ./iota/iota-validator-node-1/keys:/opt/iota/keys
+      - ./iota/common/genesis.blob:/opt/iota/common/genesis.blob
+
+  # Validator node 2
+  iota-validator-node-2:
+    <<: *iota-node
+    container_name: iota-validator-node-2
+    ports:
+      - "42900:9000"
+      - "42084:8084/udp"
+    volumes:
+      - ./iota/iota-validator-node-2/config:/opt/iota/config
+      - ./iota/iota-validator-node-2/keys:/opt/iota/keys
+      - ./iota/common/genesis.blob:/opt/iota/common/genesis.blob
+
+  # Full node 1
+  iota-full-node-1:
+    <<: *iota-node
+    container_name: iota-full-node-1
+    ports:
+      - "43900:9000"
+      - "43084:8084/udp"
+    volumes:
+      - ./iota/iota-full-node-1/config:/opt/iota/config
+      - ./iota/iota-full-node-1/keys:/opt/iota/keys
+      - ./iota/common/genesis.blob:/opt/iota/common/genesis.blob
+
+  # Full node 2
+  iota-full-node-2:
+    <<: *iota-node
+    container_name: iota-full-node-2
+    ports:
+      - "44900:9000"
+      - "44084:8084/udp"
+    volumes:
+      - ./iota/iota-full-node-2/config:/opt/iota/config
+      - ./iota/iota-full-node-2/keys:/opt/iota/keys
+      - ./iota/common/genesis.blob:/opt/iota/common/genesis.blob
+
+networks:
+  iota-net:
+    driver: bridge

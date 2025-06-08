@@ -1,0 +1,28 @@
+---
+authority-key-pair:
+  path: /opt/iota/keys/authority.key
+protocol-key-pair:
+  path: /opt/iota/keys/protocol.key
+account-key-pair:
+  path: /opt/iota/keys/account.key
+network-key-pair:
+  path: /opt/iota/keys/network.key
+
+network-address: "/ip4/0.0.0.0/tcp/8080/http"
+
+db-path: "/opt/iota/db/authorities_db"
+consensus-config:
+  db-path: "/opt/iota/db/consensus_db"
+
+genesis:
+  genesis-file-location: "/opt/iota/common/genesis.blob"
+
+p2p-config:
+  listen-address: "0.0.0.0:8084"
+  external-address: /dns/iota-validator-node-1/udp/8084
+  state-sync:
+    checkpoint-content-timeout-ms: 10000
+
+checkpoint-executor-config:
+  checkpoint-execution-max-concurrency: 200
+  local-execution-timeout-sec: 30

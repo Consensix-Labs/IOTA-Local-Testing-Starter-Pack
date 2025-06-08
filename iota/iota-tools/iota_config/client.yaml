@@ -1,0 +1,18 @@
+---
+keystore:
+  File: /root/.iota/iota_config/iota.keystore
+envs:
+  - alias: test-1
+    rpc: "http://iota-full-node-1:9000"
+    graphql: ~
+    ws: ~
+    basic_auth: ~
+    faucet: ~
+  - alias: test-2
+    rpc: "http://iota-full-node-2:9000"
+    graphql: ~
+    ws: ~
+    basic_auth: ~
+    faucet: ~
+active_env: test-1
+active_address: "0x83c86688e0d2dbbd68dd8f3caf4634b0b0fe9d2e9229f2260ae21598683bfa67"

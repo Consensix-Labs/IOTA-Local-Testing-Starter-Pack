@@ -1,0 +1,12 @@
+---
+network-address: /ip4/0.0.0.0/tcp/8080/http
+
+json-rpc-address: "0.0.0.0:9000"
+
+db-path: "/opt/iota/db"
+
+genesis:
+  genesis-file-location: "/opt/iota/common/genesis.blob"
+
+p2p-config:
+  external-address: /dns/iota-full-node-1/udp/8084
