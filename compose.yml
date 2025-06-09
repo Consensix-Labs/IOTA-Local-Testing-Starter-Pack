@@ -20,7 +20,6 @@ services:
     image: iotaledger/iota-node:v1.1.0
     container_name: iota-validator-node-1
     ports:
-      - "41900:9000"
       - "41084:8084/udp"
     command: >
       sh -c '
@@ -39,7 +38,6 @@ services:
     <<: *iota-node
     container_name: iota-validator-node-2
     ports:
-      - "42900:9000"
       - "42084:8084/udp"
     volumes:
       - ./iota/iota-validator-node-2/config:/opt/iota/config
