@@ -15,6 +15,19 @@ The setup consists of the following Docker Compose services:
 - **iota-tools** \
   A container with the IOTA client tools for interacting with the IOTA network, such as sending transactions, checking balances, etc. Also used to perform the genesis ceremony to initialize the network.
 
+Certain ports on the nodes are mapped to host ports to allow for external access:
+
+- **iota-validator-node-1**
+  - Guest UDP port 8084 -> UDP port **41084** (P2P gossip-like protocol)
+- **iota-validator-node-2**
+  - Guest UDP port 8084 -> UDP port **42084** (P2P gossip-like protocol)
+- **iota-full-node-1**
+  - Guest TCP port 9000 -> TCP port **43900** (JSON-RPC API)
+  - Guest UDP port 8084 -> UDP port **43084** (P2P gossip-like protocol)
+- **iota-full-node-2**
+  - Guest TCP port 9000 -> TCP port **44900** (JSON-RPC API)
+  - Guest UDP port 8084 -> UDP port **44084** (P2P gossip-like protocol)
+
 
 ## IOTA Accounts
 
@@ -29,7 +42,7 @@ There are two preconfigured IOTA test accounts, each associated with a different
   - Assigned to the `test-2` client environment
   - Seed: `system section brass fence carbon tilt chunk net refuse awkward shoulder wink`
 
-Both wallets have an initial balance of 2000.00 IOTA (2000000000000 NANOs).
+Both wallets have an initial balance of 2000.00 IOTA (2000000000000 NANOS).
 
 In addition to these two, each node has its own account:
 
@@ -46,4 +59,4 @@ In addition to these two, each node has its own account:
   - Account address: `0xb86c03ae85e13c23d73d77397e2176195041242e5964234b5d5b37de69e72075`
   - Seed: `depart gadget reform siren acid arrive obvious model person stable harsh cause`
 
-The accounts belonging to full nodes are initially allocated 5000.00 IOTA (5000000000000 NANOs) each. Validator node accounts are allocated 1500000.00 IOTA (1500000000000000 NANOs) each, and the entire balance is staked.
+The accounts belonging to full nodes are initially allocated 5000.00 IOTA (5000000000000 NANOS) each. Validator node accounts are allocated 1500000.00 IOTA (1500000000000000 NANOS) each, and the entire balance is staked.
