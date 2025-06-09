@@ -15,4 +15,4 @@ envs:
     basic_auth: ~
     faucet: ~
 active_env: test-1
-active_address: "0x83c86688e0d2dbbd68dd8f3caf4634b0b0fe9d2e9229f2260ae21598683bfa67"
+active_address: "0x6e7e7f006415396c89f30ad0482f5a580e18f23af808f3e81bb2f7185f2c0cf6"
