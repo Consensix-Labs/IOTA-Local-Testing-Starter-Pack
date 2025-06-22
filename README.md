@@ -28,7 +28,6 @@ Certain ports on the nodes are mapped to host ports to allow for external access
   - Guest TCP port 9000 -> TCP port **44900** (JSON-RPC API)
   - Guest UDP port 8084 -> UDP port **44084** (P2P gossip-like protocol)
 
-
 ## IOTA Accounts
 
 There are two preconfigured IOTA test accounts, each associated with a different environment:
@@ -60,3 +59,49 @@ In addition to these two, each node has its own account:
   - Seed: `depart gadget reform siren acid arrive obvious model person stable harsh cause`
 
 The accounts belonging to full nodes are initially allocated 5000.00 IOTA (5000000000000 NANOS) each. Validator node accounts are allocated 1500000.00 IOTA (1500000000000000 NANOS) each, and the entire balance is staked.
+
+## Using the iota.sh Script
+
+The provided `iota.sh` script is a simple command-line interface to manage the IOTA local testing environment and interact with the IOTA nodes. 
+
+For usage instructions, run the script with the `--help` option:
+
+```sh
+./iota.sh --help
+```
+
+### Managing the Environment
+
+To start the IOTA local testing environment, run:
+
+```sh
+./iota.sh start
+```
+
+If this is the first time running the script, it will build the Docker images, start the containers, and perform the genesis ceremony to initialize the network.
+
+You can use the standard Docker Compose commands to work with the containers, for example `docker compose ps` should display the status of the running containers.
+
+To stop the environment, run:
+
+```sh
+./iota.sh stop
+```
+
+To reset the environment and start from scratch by repeating the genesis ceremony, run:
+
+```sh
+./iota.sh reset
+```
+
+### Working with IOTA Accounts
+
+*TBA*
+
+## Using the C6 Test Wallet App
+
+*TBA*
+
+## Using the JSON-RPC API
+
+*TBA*
