@@ -1,6 +1,7 @@
 services:
   iota-tools:
-    image: iotaledger/iota-tools:v1.1.0
+    build:
+      dockerfile: ./iota/iota-tools/Dockerfile
     container_name: iota-tools
     profiles:
       - genesis
